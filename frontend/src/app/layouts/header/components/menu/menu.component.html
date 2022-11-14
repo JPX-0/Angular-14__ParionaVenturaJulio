@@ -1,0 +1,16 @@
+<aside class="aside" [ngClass]="menu.get() ? 'aside--on' : 'aside--off'">
+  <nav color="primary">
+    <ul>
+      <li><a mat-button routerLink="" (click)="menu.toggle()">Home</a></li>
+      <li><a mat-button routerLink="students" (click)="menu.toggle()">Students</a></li>
+      <li><a mat-button routerLink="courses" (click)="menu.toggle()">Courses</a></li>
+    </ul>
+    <a mat-raised-button routerLink='login' (click)="menu.toggle()" *ngIf="!(auth() | async)">
+      <mat-icon>account_circle</mat-icon> Login
+    </a>
+    <button type="button" mat-raised-button (click)='logout()' *ngIf="auth() | async" color="warn">
+      <mat-icon>account_circle</mat-icon> Logout
+    </button>
+  </nav>
+  <div class="aside__close" (click)="menu.toggle()"></div>
+</aside>

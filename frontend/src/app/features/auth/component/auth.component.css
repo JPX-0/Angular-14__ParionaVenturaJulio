@@ -1,0 +1,14 @@
+form {
+  display               : grid;
+  gap                   : 10px;
+  grid-template-columns : repeat(2, 1fr);
+  grid-template-rows    : repeat(3, auto);
+  margin                : auto;
+  max-width             : 400px;
+}
+form > legend {
+  grid-column: 1/3;
+}
+form > button {
+  grid-column: 1/3;
+}

@@ -1,0 +1,123 @@
+<form 
+  [formGroup]="dataStudents" 
+  (ngSubmit)="submitForm()"
+>
+  <legend>{{ method | renderForm }} estudiante:</legend>
+  <section>
+    <section>
+      <label>Ingresar solo texto</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre:</mat-label>
+        <input matInput 
+          type="text" 
+          formControlName="firstName" 
+          required
+        >
+        <mat-error >
+          {{ when_error("firstName", "required") && "Es requerido llenar este campo." }}
+          {{ when_error("firstName", "isNumber") && "No están permitidos los números." }}
+        </mat-error>
+      </mat-form-field>
+    </section>
+    <section>
+      <label>Ingresar solo texto</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Apellido:</mat-label>
+        <input matInput 
+          type="text" 
+          formControlName="lastName" 
+          required
+        >
+        <mat-error >
+          {{ when_error("lastName", "required") && "Es requerido llenar este campo." }}
+          {{ when_error("lastName", "isNumber") && "No están permitidos los números." }}
+        </mat-error>
+      </mat-form-field>
+    </section>
+    <section>
+      <label>Ingresar solo números</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Edad:</mat-label>
+        <input matInput 
+          type="number" 
+          formControlName="age" 
+          required
+        >
+        <mat-error >
+          {{ when_error("age", "required") && "Es requerido llenar este campo." }}
+          {{ when_error("age", "min") && "Debe ser mayor de 18 años." }}
+          {{ when_error("age", "isText") && "No están permitidas las letras." }}
+        </mat-error>
+      </mat-form-field>
+    </section>
+    <section>
+      <label>Ingresar correo</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Correo:</mat-label>
+        <input matInput 
+          type="email" 
+          formControlName="email" 
+          required
+        >
+        <mat-error >
+          {{ when_error("email", "required") && "Es requerido llenar este campo." }}
+          {{ when_error("email", "email") && "Debe ingresar un correo válido." }}
+        </mat-error>
+      </mat-form-field>
+    </section>
+    <section>
+      <label>Ingresar enlace de la imagen</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Avatar:</mat-label>
+        <input matInput 
+          type="url" 
+          formControlName="image"
+        >
+      </mat-form-field>
+    </section>
+    <section>
+      <label>Ingresar solo números</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Comisión:</mat-label>
+        <input matInput 
+          type="number" 
+          formControlName="commission" 
+          required
+        >
+        <mat-error >
+          {{ when_error("commission", "required") && "Es requerido llenar este campo." }}
+          {{ when_error("commission", "isText") && "No están permitidas las letras." }}
+        </mat-error>
+      </mat-form-field>
+    </section>
+    <section>
+      <label>Estado actual</label>
+      <mat-form-field appearance="fill">
+        <mat-label>Elegir opción:</mat-label>
+        <mat-select formControlName="status">
+          <mat-option value="cursando">Cursando</mat-option>
+          <mat-option value="egresado">Egresado</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </section>
+    <section formArrayName="courses">
+      <label>Certificados actuales</label>
+      <mat-form-field appearance="fill" *ngFor="let curso of this_courses.controls; let i = index">
+        <mat-label>Ingresar el curso {{ i + 1 }}</mat-label>
+        <input matInput 
+          type="text" 
+          formControlName="{{ i }}" 
+        >
+      </mat-form-field>
+      <div class="btn">
+        <button mat-icon-button type="button" (click)="addCourse()">
+          <mat-icon>add_circle</mat-icon>
+        </button>
+        <button mat-icon-button type="button" (click)="removeCourse()">
+          <mat-icon>remove_circle</mat-icon>
+        </button>
+      </div>
+    </section>
+    <button type="submit" mat-flat-button color="primary" [disabled]="!dataStudents.valid" >Guardar</button>
+  </section>
+</form>

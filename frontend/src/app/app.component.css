@@ -1,0 +1,15 @@
+header {
+  position : sticky;
+  top      : 0;
+  z-index  : 100;
+}
+app-header {
+  position: relative;
+}
+main {
+  min-height : calc(100vh - 133.99px);
+  padding    : 20px;
+}
+footer {
+  justify-self: center;
+}

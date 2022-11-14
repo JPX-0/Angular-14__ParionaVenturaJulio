@@ -1,0 +1,83 @@
+form {
+  display   : flex;
+  flex-wrap : wrap;
+  margin    : auto;
+  max-width : 800px;
+  width     : 100%;
+}
+form > legend {
+  display : block;
+  width   : 100%;
+}
+form > section {
+  display               : grid;
+  gap                   : 10px;
+  width                 : 100%;
+  grid-template-columns : repeat(3, 1fr);
+  grid-template-areas   : 
+    "form1 form2 form3"
+    "form4 form5 form6"
+    "form7 form8 form8"
+    "form9 form9 form9";
+}
+form label {
+  height: max-content;
+}
+form > section > section {
+  display            : grid;
+  grid-template-rows : 20px auto;
+  padding            : 5px;
+  width              : 100%;
+}
+form > section > section:nth-child(1) {
+  grid-area: form1;
+}
+form > section > section:nth-child(2) {
+  grid-area: form2;
+}
+form > section > section:nth-child(3) {
+  grid-area: form3;
+}
+form > section > section:nth-child(4) {
+  grid-area: form4;
+}
+form > section > section:nth-child(5) {
+  grid-area: form5;
+}
+form > section > section:nth-child(6) {
+  grid-area: form6;
+}
+form > section > section:nth-child(7) {
+  grid-area: form7;
+}
+form > section > section:nth-child(8) {
+  align-items     : flex-start;
+  display         : flex;
+  flex-wrap       : wrap;
+  grid-area       : form8;
+  height          : auto;
+  justify-content : flex-start;
+  position        : relative;
+}
+form > section > section:nth-child(8) > label {
+  display : block;
+  width   : 100%;
+}
+form > section > section:nth-child(8) mat-form-field {
+  width: calc(100% - 71px);
+}
+form > section > section:nth-child(8) > div {
+  align-items     : center;
+  display         : flex;
+  height          : max-content;
+  justify-content : center;
+  position        : absolute;
+  right           : 0;
+  top             : 30px;
+  width           : 70px;
+}
+form > section > button {
+  grid-area : form9;
+  margin    : auto;
+  width     : 50%;
+}

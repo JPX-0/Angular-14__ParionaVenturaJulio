@@ -1,0 +1,55 @@
+.aside {
+  display               : grid;
+  grid-template-columns : 0 1fr;
+  height                : 100%;
+  transition            : 0.3s;
+}
+.aside--on {
+  opacity: 1;
+}
+.aside--off {
+  opacity: 0;
+}
+.aside > nav {
+  background-color : rgb(124, 69, 220);
+  color            : white;
+  display          : flex;
+  flex-direction   : column;
+  gap              : 10px;
+  padding          : 10px;
+  transition       : 0.3s;
+  width            : 270px;
+  z-index          : 1;
+}
+.aside > nav > a, .aside > nav > button {
+  align-self : center;
+  color      : black;
+  margin-top : 20px;
+  width      : 80%;
+}
+.aside > nav > ul {
+  color          : white;
+  display        : flex;
+  flex-direction : column;
+  gap            : 10px;
+  list-style     : none;
+  margin         : 0;
+  padding        : 0;
+}
+.aside > nav > ul a {
+  text-align : start;
+  width      : 100%;
+}
+.aside--on > nav {
+  transform: translateX(0);
+}
+.aside--off > nav {
+  transform: translateX(-100%);
+}
+
+.aside__close {
+  backdrop-filter  : blur(10px);
+  background-color : rgba(0, 0, 0, 0.25);
+  cursor           : pointer;
+  z-index          : 0;
+}

@@ -1,0 +1,18 @@
+app-toolbar {
+  z-index: 1;
+}
+app-menu {
+  left       : 0;
+  margin-top : 63.99px;
+  overflow   : hidden;
+  position   : absolute;
+  right      : 0;
+  top        : 0;
+}
+.on {
+  height: calc(100vh - 63.99px);
+}
+.off {
+  height     : 0;
+  transition : 0.3s step-end;
+}
